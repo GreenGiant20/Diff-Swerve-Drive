@@ -1,0 +1,31 @@
+package Diff Swerve Math;
+
+public class finalvector{
+    
+    /* 
+    - These are the varibles that would be from the 2 joysticks
+    - Change these to test different situations of the joystick
+    */
+    public int angle = 45;
+    public int mag = 0.08;
+    public int rotation = 0;
+
+    public static int finalvector(int angle, int mag){
+        this.angle = int angle;
+        this.mag = int mag;
+    
+    }
+    public static int components(){
+
+        /* 
+        Is calculating the X and Y compentents of the Resultant Vector
+        */
+        int xcomp = this.mag * Math.sin(this.angle);
+        int ycomp = this.mag * Math. cos(this.mag);
+        return int xcomp, int ycomp;
+    }
+    System.out.println("Given:" int angle, int mag, int rotation);
+    System.out.println("X Component = " int xcomp);
+    System.out.println("Y Component = " int ycomp);
+    
+}
