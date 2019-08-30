@@ -6,26 +6,119 @@ public class finalvector{
     - These are the varibles that would be from the 2 joysticks
     - Change these to test different situations of the joystick
     */
-    public int angle = 45;
-    public int mag = 0.08;
-    public int rotation = 0;
+    public final float angle = 45;
+    public final float mag = 0.08;
+    public final float rotation = 0;
+    public final float robot length = 32;
+    public final float robot width = 20;
 
-    public static int finalvector(int angle, int mag){
-        this.angle = int angle;
-        this.mag = int mag;
+    public static float finalvector(float angle, float mag, float robot length, float robot width){
+        this.angle = float angle;
+        this.mag = float mag;
+        this.robotlength = float robot length;
+        this.robotwidth = float robot width;
     
     }
-    public static int components(){
+
+    public static float robotdimensions(){
+
+        /*
+        Calculates half of the length and width of the robot for the resultant vector formula
+        */
+        float length = this.robotlength / 2;
+        float width = this.robotwidth / 2;
+        return float length, float width;
+    }
+
+    public static float components(){
 
         /* 
         Is calculating the X and Y compentents of the Resultant Vector
         */
-        int xcomp = this.mag * Math.sin(this.angle);
-        int ycomp = this.mag * Math. cos(this.mag);
-        return int xcomp, int ycomp;
+        float xcomp = this.mag * Math.sin(this.angle);
+        float ycomp = this.mag * Math. cos(this.mag);
+        return float xcomp, float ycomp;
     }
-    System.out.println("Given:" int angle, int mag, int rotation);
-    System.out.println("X Component = " int xcomp);
-    System.out.println("Y Component = " int ycomp);
     
+    public static float wheel1math(){
+
+        /*
+        Calculates the X and Y vector components of wheel 1, calculates raw wheel speed and wheel angle
+        */
+        float w1Xvector = (float xcomp + (float rotation * float length));
+        float w1Yvector = (float ycomp - (float rotation * float width));
+        float w1speed = sqrt((float w1Xvector * float w1Xvector) + (float w1Yvector * float w1Yvector));
+        float w1angle = arctan(float w1Yvector / float w1Xvector);
+        return float w1speed, float w1angle;
+    }
+
+    public static float wheel2math(){
+
+        /*
+        Calculates the X and Y vector components of wheel 2, calculates raw wheel speed and wheel angle
+        */
+        float w2Xvector = (float xcomp + (float rotation * float length));
+        float w2Yvector = (float ycomp - (float rotation * float width));
+        float w2speed = sqrt((float w2Xvector * float w2Xvector) + (float w2Yvector * float w2Yvector));
+        float w2angle = arctan(float w2Yvector / float w2Xvector);
+        return float w2speed, float w2angle;
+
+    }
+    
+    public static int wheel3math(){
+
+        /*
+        Calculates the X and Y vector components of wheel 3, calculates raw wheel speed and wheel angle
+        */
+        float w3Xvector = (float xcomp + (float rotation * float length));
+        float w3Yvector = (float ycomp - (float rotation * float width));
+        float w3speed = sqrt((float w3Xvector * float w3Xvector) + (float w3Yvector * float w3Yvector));
+        float w3angle = arctan(float w3Yvector / float w3Xvector);
+        return float w3speed, float w3angle;
+
+    }
+
+    public static int wheel4math(){
+
+         /*
+        Calculates the X and Y vector components of wheel 4, calculates raw wheel speed and wheel angle
+        */
+        float w3Xvector = (float xcomp + (float rotation * float length));
+        float w3Yvector = (float ycomp - (float rotation * float width));
+        float w3speed = sqrt((float w3Xvector * float w3Xvector) + (float w3Yvector * float w3Yvector));
+        float w3angle = arctan(float w3Yvector / float w3Xvector);
+        return float w3speed, float w3angle;
+    }
+
+    public static int finalwheelspeed(){
+
+        /*
+        Sees which wheel speed is the largest and then divides all wheel speeds by that largest wheel speed. This is so all wheel speeds are between 0 and 1.
+        */
+        float w1speed = float max;
+        
+        if(float max < float w2speed){
+            float w2speed = float max;
+        }
+        if(float max < float w3speed){
+            float w3speed = float max;
+        }
+        if(flat max < float w4speed){
+            float w4speed = float max;
+        }
+        
+        float w1finalspeed = float w1speed / float max;
+        float w2finalspeed = float w2speed / float max;
+        float w3finalspeed = float w3speed / float max;
+        float w4finalspeed = float w4speed / float max;
+
+        return w1finalspeed, w2finalspeed, w3finalspeed, w4finalspeed;
+    }
+    System.out.println("Given:", int angle, int mag, int rotation, int robot length, int robot width);
+    System.out.println("X Component = ", int xcomp);
+    System.out.println("Y Component = ", int ycomp);
+    System.out.println("Wheel 1:", "X", float w1Xvector, "Y", float w1Yvector, "Final Speed", float w1finalspeed, "Wheel Angle", float w1angle);
+    System.out.println("Wheel 1:", "X", float w2Xvector, "Y", float w2Yvector, "Final Speed", float w2finalspeed, "Wheel Angle", float w2angle);
+    System.out.println("Wheel 1:", "X", float w3Xvector, "Y", float w3Yvector, "Final Speed", float w3finalspeed, "Wheel Angle", float w3angle);
+    System.out.println("Wheel 1:", "X", float w4Xvector, "Y", float w4Yvector, "Final Speed", float w4finalspeed, "Wheel Angle", float w4angle);
 }
