@@ -17,6 +17,7 @@ public class finalvector{
         this.mag = float mag;
         this.robotlength = float robot length;
         this.robotwidth = float robot width;
+        this.rotation = float rotation;
     
     }
 
@@ -45,10 +46,25 @@ public class finalvector{
         /*
         Calculates the X and Y vector components of wheel 1, calculates raw wheel speed and wheel angle
         */
-        float w1Xvector = (float xcomp + (float rotation * float length));
-        float w1Yvector = (float ycomp - (float rotation * float width));
+        float w1Xvector = (float xcomp + (this.rotation * float length));
+        float w1Yvector = (float ycomp - (this.rotation * float width));
         float w1speed = sqrt((float w1Xvector * float w1Xvector) + (float w1Yvector * float w1Yvector));
+        
+        /*
+        Allows X vector to be zero and not make arctan undefined. 
+        If the Y vector is positive the angle is 90 .
+        If the Y vector is negaitive the angle is 270.
+        */
+        if(float w1Xvector == 0){
+            if(float w1Yvector > 0){
+                float w1angle = 90;
+            }
+            if(float w1Yvector < 0){
+                float w1angle = 270;
+            }
+        }
         float w1angle = arctan(float w1Yvector / float w1Xvector);
+        
         return float w1speed, float w1angle;
     }
 
@@ -57,10 +73,25 @@ public class finalvector{
         /*
         Calculates the X and Y vector components of wheel 2, calculates raw wheel speed and wheel angle
         */
-        float w2Xvector = (float xcomp + (float rotation * float length));
-        float w2Yvector = (float ycomp - (float rotation * float width));
+        float w2Xvector = (float xcomp + (this.rotation * float length));
+        float w2Yvector = (float ycomp + (this.rotation * float width));
         float w2speed = sqrt((float w2Xvector * float w2Xvector) + (float w2Yvector * float w2Yvector));
+        
+        /*
+        Allows X vector to be zero and not make arctan undefined. 
+        If the Y vector is positive the angle is 90 .
+        If the Y vector is negaitive the angle is 270.
+        */
+        if(float w1Xvector == 0){
+            if(float w1Yvector > 0){
+                float w1angle = 90;
+            }
+            if(float w1Yvector < 0){
+                float w1angle = 270;
+            }
+        }
         float w2angle = arctan(float w2Yvector / float w2Xvector);
+
         return float w2speed, float w2angle;
 
     }
@@ -70,10 +101,25 @@ public class finalvector{
         /*
         Calculates the X and Y vector components of wheel 3, calculates raw wheel speed and wheel angle
         */
-        float w3Xvector = (float xcomp + (float rotation * float length));
-        float w3Yvector = (float ycomp - (float rotation * float width));
+        float w3Xvector = (float xcomp - (this.rotation * float length));
+        float w3Yvector = (float ycomp + (this.rotation * float width));
         float w3speed = sqrt((float w3Xvector * float w3Xvector) + (float w3Yvector * float w3Yvector));
+        
+        /*
+        Allows X vector to be zero and not make arctan undefined. 
+        If the Y vector is positive the angle is 90 .
+        If the Y vector is negaitive the angle is 270.
+        */
+        if(float w1Xvector == 0){
+            if(float w1Yvector > 0){
+                float w1angle = 90;
+            }
+            if(float w1Yvector < 0){
+                float w1angle = 270;
+            }
+        }
         float w3angle = arctan(float w3Yvector / float w3Xvector);
+
         return float w3speed, float w3angle;
 
     }
@@ -83,10 +129,25 @@ public class finalvector{
          /*
         Calculates the X and Y vector components of wheel 4, calculates raw wheel speed and wheel angle
         */
-        float w3Xvector = (float xcomp + (float rotation * float length));
-        float w3Yvector = (float ycomp - (float rotation * float width));
+        float w3Xvector = (float xcomp - (this.rotation * float length));
+        float w3Yvector = (float ycomp - (this.rotation * float width));
         float w3speed = sqrt((float w3Xvector * float w3Xvector) + (float w3Yvector * float w3Yvector));
+        
+        /*
+        Allows X vector to be zero and not make arctan undefined. 
+        If the Y vector is positive the angle is 90 .
+        If the Y vector is negaitive the angle is 270.
+        */
+        if(float w1Xvector == 0){
+            if(float w1Yvector > 0){
+                float w1angle = 90;
+            }
+            if(float w1Yvector < 0){
+                float w1angle = 270;
+            }
+        }
         float w3angle = arctan(float w3Yvector / float w3Xvector);
+
         return float w3speed, float w3angle;
     }
 
